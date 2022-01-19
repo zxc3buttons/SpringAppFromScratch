@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+        <context:property-placeholder location="musicplayer.properties"/>
+
+    <bean id="classicalMusic"
+          class="ru.tokarev.springcourse.ClassicalMusic">
+    </bean>
+
+    <bean id="rockMusic"
+          class="ru.tokarev.springcourse.RockMusic">
+    </bean>
+
+    <bean id="rapMusic"
+          class="ru.tokarev.springcourse.RapMusic">
+    </bean>
+
+    <bean id="musicBeanList"
+          class="java.util.ArrayList">
+        <constructor-arg>
+            <util:list>
+                <ref bean="classicalMusic"/>
+                <ref bean="rockMusic"/>
+                <ref bean="rapMusic"/>
+            </util:list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="musicPlayer"
+          class="ru.tokarev.springcourse.MusicPlayer">
+
+        <property name="musicList" ref="musicBeanList"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+    </bean>
+
+</beans>
