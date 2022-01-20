@@ -21,22 +21,19 @@
           class="ru.tokarev.springcourse.RapMusic">
     </bean>
 
-    <bean id="musicBeanList"
-          class="java.util.ArrayList">
-        <constructor-arg>
-            <util:list>
+    <bean id="musicPlayer"
+          class="ru.tokarev.springcourse.MusicPlayer"
+          scope="prototype">
+
+        <property name="musicList">
+            <list>
                 <ref bean="classicalMusic"/>
                 <ref bean="rockMusic"/>
                 <ref bean="rapMusic"/>
-            </util:list>
-        </constructor-arg>
-    </bean>
-
-    <bean id="musicPlayer"
-          class="ru.tokarev.springcourse.MusicPlayer">
-
-        <property name="musicList" ref="musicBeanList"/>
+            </list>
+        </property>
         <property name="volume" value="${musicPlayer.volume}"/>
+
     </bean>
 
 </beans>
