@@ -1,5 +1,7 @@
 package ru.tokarev.springcourse;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 public class MusicPlayer {

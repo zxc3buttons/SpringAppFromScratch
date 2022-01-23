@@ -1,5 +1,8 @@
 package ru.tokarev.springcourse;
 
+import org.springframework.stereotype.Component;
+
+@Component("classicalMusicBean")
 public class ClassicalMusic implements Music {
 
     public void doInitMethod() {
