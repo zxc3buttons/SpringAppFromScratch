@@ -2,7 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
@@ -10,7 +9,9 @@
         <context:property-placeholder location="musicplayer.properties"/>
 
     <bean id="classicalMusic"
-          class="ru.tokarev.springcourse.ClassicalMusic">
+          class="ru.tokarev.springcourse.ClassicalMusic"
+          init-method="doInitMethod"
+          destroy-method="doDestroyMethod">
     </bean>
 
     <bean id="rockMusic"
