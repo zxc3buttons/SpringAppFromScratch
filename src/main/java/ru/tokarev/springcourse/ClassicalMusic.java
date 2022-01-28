@@ -2,8 +2,10 @@ package ru.tokarev.springcourse;
 
 import org.springframework.stereotype.Component;
 
-@Component("classicalMusicBean")
+@Component()
 public class ClassicalMusic implements Music {
+
+    private final String[] songs = {"Hungarian Rhapsody", "Experience", "Clair de Lune"};
 
     public void doInitMethod() {
         System.out.println("Initialisation!");
@@ -11,6 +13,10 @@ public class ClassicalMusic implements Music {
 
     public void doDestroyMethod() {
         System.out.println("Destruction!");
+    }
+
+    public String[] getSongs() {
+        return songs;
     }
 
     @Override
