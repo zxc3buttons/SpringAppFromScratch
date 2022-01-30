@@ -1,21 +1,21 @@
 package ru.tokarev.springcourse;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.tokarev.springcourse.config.SpringConfig;
+
+import java.util.Arrays;
 
 public class TestSpring {
 
     public static void main(String[] args) {
 
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContext.xml"
-        );
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
         firstMusicPlayer.setVolume(20);
 
-        firstMusicPlayer.playMusic(MusicGenre.ROCK);
-
+        firstMusicPlayer.playMusic();
 
         context.close();
     }

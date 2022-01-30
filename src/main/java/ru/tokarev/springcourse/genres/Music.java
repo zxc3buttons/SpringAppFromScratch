@@ -1,4 +1,4 @@
-package ru.tokarev.springcourse;
+package ru.tokarev.springcourse.genres;
 
 public interface Music {
     String getSong();

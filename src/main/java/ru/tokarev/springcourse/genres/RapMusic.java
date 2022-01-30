@@ -1,8 +1,5 @@
-package ru.tokarev.springcourse;
+package ru.tokarev.springcourse.genres;
 
-import org.springframework.stereotype.Component;
-
-@Component()
 public class RapMusic implements Music {
 
     private String[] songs = {"Rap God", "No Friends In The Industry", "В темноте"};

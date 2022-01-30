@@ -1,22 +1,21 @@
 package ru.tokarev.springcourse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
+import ru.tokarev.springcourse.genres.Music;
 
+import java.util.List;
 import java.util.Random;
 
-@Component
 public class MusicPlayer {
 
 
-    private RockMusic rockMusic;
-    private ClassicalMusic classicalMusic;
+    private final List<Music> musicList;
+
+    @Value("${musicPlayer.volume}")
     private int volume;
 
-    @Autowired
-    public MusicPlayer(RockMusic rockMusic, ClassicalMusic classicalMusic) {
-        this.rockMusic = rockMusic;
-        this.classicalMusic = classicalMusic;
+    public MusicPlayer(List<Music> musicList) {
+        this.musicList = musicList;
     }
 
     public int getVolume() {
@@ -27,22 +26,11 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public void playMusic(MusicGenre musicGenre) {
+    public void playMusic() {
 
         Random random = new Random();
-        int randomNumber = random.nextInt(3);
+        int randomNumber = random.nextInt(musicList.size());
 
-        switch (musicGenre) {
-
-            case ROCK:
-                System.out.println("Now playing rock music: \n");
-                System.out.println(rockMusic.getSongs()[randomNumber]);
-                break;
-
-            case CLASSICAL:
-                System.out.println("Now playing classical music: \n");
-                System.out.println(classicalMusic.getSongs()[randomNumber]);
-                break;
-        }
+        System.out.println(musicList.get(randomNumber).getName() + " with volume " + volume);
     }
 }

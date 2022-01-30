@@ -1,9 +1,6 @@
-package ru.tokarev.springcourse;
+package ru.tokarev.springcourse.genres;
 
-import org.springframework.stereotype.Component;
-
-@Component()
-public class RockMusic implements Music{
+public class RockMusic implements Music {
 
     private final String[] songs = {"Wind cries Mary", "Back in Black", "Миокард"};
 

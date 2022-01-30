@@ -1,8 +1,5 @@
-package ru.tokarev.springcourse;
+package ru.tokarev.springcourse.genres;
 
-import org.springframework.stereotype.Component;
-
-@Component()
 public class ClassicalMusic implements Music {
 
     private final String[] songs = {"Hungarian Rhapsody", "Experience", "Clair de Lune"};
